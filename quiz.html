@@ -217,9 +217,9 @@
 
 
 
-<form action="./quiz.html">
+<form>	
+	<input type="button" onclick="getanswers()" value="Submit Quiz!">
 	
-	<input type="submit" formaction="./scorepage.html" value="Submit Quiz!">
 </form>
 
 
@@ -231,8 +231,14 @@
 
 	var score = 0;
 
+	var guestname = window.location.search.replace( "?", "");
+	var uservalues = guestname.split("=");
+	var previous_score;
+	var avg_score;
+
 	function getanswers() {
-	
+		var game_score;
+
 		var q1_input = document.getElementById('q1');
 		var q1_ans = q1_input.options[q1_input.selectedIndex].value;
 		user_answers.push(q1_ans);
@@ -317,13 +323,35 @@
 		
                 for (var i = 0; i<correct_ans.length; i++) {
                         if (correct_ans[i] === user_answers[i]) {
-                                score = score + 5;
+                                game_score = game_score + 5;
                         }
                 }
-                console.log(score);	
-
-	}
+		score = game_score;
 	
+		scorealert();
+	}
 
+
+	function scorealert() {
+		var user_replay;
+	
+		if (previous_score != null) {
+			user_replay = window.confirm(uservalues[1] + ", your score is" + String(score) +". Your average is: " + String(avg_score) + "<br>" + "Would you like to retake the quiz?" + String(previous_score));
+		} else {
+			user_replay = window.confirm(uservalues[1] + ", your score is: " + String(score) + "<br>" + "Would you like to retake the quiz?");
+		}
+
+		if (user_replay == true) {
+			if (previous_score == null) {
+				previous_score = score;
+			}
+			avg_score = (previous_score + score) / 2;	
+			return false;
+		} else {
+			window.location.href = "./homepage.html";
+			return true;	
+		}
+		 
+	}
 
 </script>
