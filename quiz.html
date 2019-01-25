@@ -153,10 +153,10 @@
 <br>
 <select id="q15" name="q15">
 	<option value="none"> </option>
-        <option value="Holtz">Lou Holtz</option>
+        <option value="Weis">Charlie Weis</option>
         <option value="Leahy">Frank Leahy</option>
         <option value="Rockne">Knute Rockne</option>
-        <option value="Ara">Ara Parseghian</option>
+        <option value="Holtz">Lou Holtz</option>
 </select>
 <br>
 
@@ -225,9 +225,9 @@
 
 
 <script type="text/javascript">
-	var correct_ans = ["1842", "7", "mass", "1972", "Rally", "word", "Daniel", "Clarke", "1/7", "real_one", "Condoleeza", "Leprechaun", "Gipper", "Golson", "sjsm", "pd", "correct"];
+	var correct_ans = ["1842", "11", "mass", "1972", "Rally", "word", "Daniel", "Clarke", "1/7", "real_one", "Condoleeza", "Leprechaun", "Gipper", "Golson", "Weis", "Knute", "Brown", "sjsm", "pd", "correct"];
 
-	var user_answers = [];	
+	var user_answers;	
 
 	var score = 0;
 
@@ -237,7 +237,8 @@
 	var avg_score;
 
 	function getanswers() {
-		var game_score;
+		user_answers = [];
+		var game_score = 0;
 
 		var q1_input = document.getElementById('q1');
 		var q1_ans = q1_input.options[q1_input.selectedIndex].value;
@@ -336,16 +337,14 @@
 		var user_replay;
 	
 		if (previous_score != null) {
-			user_replay = window.confirm(uservalues[1] + ", your score is" + String(score) +". Your average is: " + String(avg_score) + "<br>" + "Would you like to retake the quiz?" + String(previous_score));
+			user_replay = window.confirm(uservalues[1] + ", your score is: " + String(score) +". Your average is: " + String(avg_score) + "\n" + "Would you like to retake the quiz?" + String(previous_score));
 		} else {
-			user_replay = window.confirm(uservalues[1] + ", your score is: " + String(score) + "<br>" + "Would you like to retake the quiz?");
+			user_replay = window.confirm(uservalues[1] + ", your score is: " + String(score) + "\n" + "Would you like to retake the quiz?");
 		}
 
 		if (user_replay == true) {
-			if (previous_score == null) {
-				previous_score = score;
-			}
 			avg_score = (previous_score + score) / 2;	
+			previous_score = score;	
 			return false;
 		} else {
 			window.location.href = "./homepage.html";
