@@ -3,13 +3,20 @@
 
         <head>
                 <meta charset="utf-8">
-                <title>JavaScript Daily 14</title>
+                <title>Notre Dame Knowledge Quiz</title>
+		<link rel="stylesheet" type="text/css" href="./main.css">
         </head>
 
         <body>
-                <script type="text/javascript" src="scripts/json2.js"></script>
-                <script type="text/javascript" src="scripts/paradigms.js"></script>
-                <script type="text/javascript" src="scripts/main.js"></script>
+		<form action="./scorepage.html">
+			<header>
+			<h1>Test your Notre Dame knowledge!</h1>
+			<img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Notre_Dame_Fighting_Irish_logo.svg" alt="ndlogo">
+			<h3> Begin by entering your name!</h3>
+			Name: <input type="text" name="playername"><br>
+			<br>
+			<input type="submit" formaction="./quiz.html" value="Start Quiz!">
+		</form>
         </body>
 
 </html>

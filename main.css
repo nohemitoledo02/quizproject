@@ -1,0 +1,60 @@
+body {
+font-family: "Lucida Console", Monaco, monospace;
+font-size: 28px;
+letter-spacing: -0.8px;
+word-spacing: -2.8px;
+color: #021442;
+font-weight: 700;
+text-decoration: none;
+font-style: normal;
+font-variant: normal;
+text-transform: none;
+text-align: center ;
+background: #6B5C2C none no-repeat scroll 0 0;
+}
+
+
+button, input[type="button"], input[type="submit"] {
+-moz-box-shadow:inset 0px 0px 15px 3px #23395e;
+-webkit-box-shadow:inset 0px 0px 15px 3px #23395e;
+box-shadow:inset 0px 0px 15px 3px #23395e;
+background-color:#2e466e;
+-moz-border-radius:17px;
+-webkit-border-radius:17px;
+border-radius:17px;
+border:1px solid #1f2f47;
+display:inline-block;
+cursor:pointer;
+color:#D3A315;
+font-family:Arial;
+font-size:19px;
+font-weight:bold;
+padding:5px 22px;
+text-decoration:none;
+text-shadow:0px 1px 0px #263666;
+}
+button:hover {
+background-color:#415989;
+}
+button:active {
+position:relative;
+top:1px;
+}
+
+input {
+padding: 9px;
+font-size: 18px;
+border-width: 5px;
+border-color: D3A315;
+background-color: #FFFFFF;
+color: 021442;
+border-style: double;
+border-radius: 13px;
+box-shadow: 0px 0px 5px rgba(66,66,66,.75);
+text-shadow: 0px 0px 5px rgba(66,66,66,.75);
+}
+input:focus {
+outline:none;
+}
+
+
