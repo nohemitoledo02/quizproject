@@ -335,15 +335,27 @@
 
 	function scorealert() {
 		var user_replay;
-	
+		var score_track = [];
+		var num = 0;	
 		if (previous_score != null) {
-			user_replay = window.confirm(uservalues[1] + ", your score is: " + String(score) +". Your average is: " + String(avg_score) + "\n" + "Would you like to retake the quiz?" + String(previous_score));
+			if (score_track.length == 0) {
+				score_track.push(previous_score);
+			}
+			score_track.push(score);
+			for (var j = 0; j<score_track.length; j++) {
+				num = num + score_track[j];
+			}
+			
+			avg_score = num/score_track.length;	
+
+			user_replay = window.confirm(uservalues[1] + ", your score is: " + String(score) +". Your average is: " + String(avg_score) + "\n" + "Would you like to retake the quiz?");
+		
 		} else {
 			user_replay = window.confirm(uservalues[1] + ", your score is: " + String(score) + "\n" + "Would you like to retake the quiz?");
 		}
 
+		
 		if (user_replay == true) {
-			avg_score = (previous_score + score) / 2;	
 			previous_score = score;	
 			return false;
 		} else {
